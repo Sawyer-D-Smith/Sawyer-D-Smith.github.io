@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes the page scale correctly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Your Name] | Portfolio</title>
+  <style>
+    /* Colors are defined once here and reused below */
+    :root {
+      --text: #1d2733;
+      --muted: #5c6773;
+      --accent: #1f5f8b;
+      --line: #d9dee3;
+      --bg: #fbfcfd;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+    h1, h2, nav, th { font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+    a { color: var(--accent); }
+
+    /* Navigation menu */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    nav a { text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    /* Keeps content in a readable column */
+    main { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem 4rem; }
+    header { padding: 3rem 0 1rem; }
+    h1 { font-size: 2.25rem; margin: 0 0 0.25rem; }
+    .subtitle { color: var(--muted); margin: 0; }
+    section { padding-top: 2rem; }
+    h2 { font-size: 1.35rem; margin: 0 0 0.75rem; }
+
+    ul.skills { columns: 2; padding-left: 1.2rem; margin: 0; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: 0.9rem; color: var(--muted); }
+
+    footer { color: var(--muted); font-size: 0.9rem; padding-top: 2rem; }
+
+    @media (max-width: 480px) {
+      ul.skills { columns: 1; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Each href matches an id on a section below -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <header>
+      <h1>[Your Name]</h1>
+      <p class="subtitle">[Your Major] Student, [Your University]</p>
+    </header>
+
+    <section id="about">
+      <h2>About me</h2>
+      <!-- 100-150 words: major, career interests, AI interests, technical interests -->
+      <p>[Write your paragraph here.]</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Git and GitHub</li>
+        <li>Microsoft Excel</li>
+        <li>Data Analytics</li>
+        <li>AI Prompt Engineering</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <!-- Replace the descriptions as you finish each assignment -->
+      <table>
+        <tr><th>Project</th><th>Description</th></tr>
+        <tr><td>AI Business Analysis</td><td>Analyze business data using ChatGPT</td></tr>
+        <tr><td>Data Visualization</td><td>Dashboard built with Tableau</td></tr>
+        <tr><td>Web Development</td><td>Responsive Bootstrap website</td></tr>
+        <tr><td>Process Improvement</td><td>AI-assisted business workflow redesign</td></tr>
+      </table>
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>Resume coming soon.</p>
+      <!-- Later: <p><a href="resume.pdf">Download my resume (PDF)</a></p> -->
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:[you@university.edu]">[you@university.edu]</a><br>
+        GitHub: <a href="https://github.com/[username]">github.com/[username]</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/[your-profile]">[your LinkedIn]</a>
+      </p>
+    </section>
+
+    <footer>&copy; 2026 [Your Name]</footer>
+  </main>
+
+</body>
+</html>
