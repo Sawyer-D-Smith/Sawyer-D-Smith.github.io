@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sawyer Smith | Finance & Business AI</title>
+  <style>
+    :root {
+      --navy: #0f172a;
+      --blue: #2563eb;
+      --blue-light: #eff6ff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --white: #ffffff;
+      --background: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1050px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      color: white;
+    }
+
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-size: .92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      opacity: .85;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #93c5fd;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #172554 65%, #1d4ed8 100%);
+      color: white;
+      padding: 95px 0 90px;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #bfdbfe;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+    }
+
+    .hero h2 {
+      margin: 18px 0 22px;
+      font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+      font-weight: 500;
+      color: #dbeafe;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0;
+      font-size: 1.05rem;
+      color: #cbd5e1;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: .2s;
+    }
+
+    .button-primary {
+      background: white;
+      color: var(--navy);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,.35);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-heading span {
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 5px 0 0;
+      font-size: 2rem;
+      letter-spacing: -.025em;
+      color: var(--navy);
+    }
+
+    .about-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      box-shadow: 0 8px 30px rgba(15,23,42,.05);
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill {
+      background: var(--blue-light);
+      color: #1e40af;
+      border: 1px solid #dbeafe;
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: .9rem;
+      font-weight: 650;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 27px;
+      min-height: 175px;
+      box-shadow: 0 8px 30px rgba(15,23,42,.05);
+      transition: .2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfdbfe;
+      box-shadow: 0 14px 35px rgba(15,23,42,.09);
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .project-card h3 {
+      margin: 8px 0 9px;
+      color: var(--navy);
+      font-size: 1.2rem;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* Resume */
+    .resume-box {
+      background: var(--navy);
+      color: white;
+      border-radius: 16px;
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .resume-box h2 {
+      margin: 0 0 5px;
+      font-size: 1.55rem;
+    }
+
+    .resume-box p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .contact-card span {
+      display: block;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .contact-card a {
+      color: var(--blue);
+      font-weight: 650;
+      word-break: break-word;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #94a3b8;
+      text-align: center;
+      padding: 25px 0;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .projects,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resume-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#about">Sawyer Smith</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">University of Utah</div>
+      <h1>Sawyer Smith</h1>
+      <h2>Finance &amp; Business AI Student</h2>
+      <p>
+        I am a student at the University of Utah pursuing a degree in Finance
+        with a minor in Business AI. I am interested in venture capital,
+        technology, medical sales, and entrepreneurship. I am particularly
+        interested in using AI and data analysis to evaluate investments,
+        improve business processes, and build new ventures.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button button-primary" href="#projects">View My Projects</a>
+        <a class="button button-secondary" href="#contact">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span>About</span>
+          <h2>What I'm interested in</h2>
+        </div>
+
+        <div class="about-card">
+          <p>
+            My interests sit at the intersection of finance, technology, and
+            entrepreneurship. I enjoy using data and emerging technology to
+            understand businesses, solve problems, and explore new opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span>Skills</span>
+          <h2>What I bring to the table</h2>
+        </div>
+
+        <div class="skills">
+          <span class="skill">Sales &amp; Negotiation</span>
+          <span class="skill">Leadership</span>
+          <span class="skill">Business Development</span>
+          <span class="skill">Microsoft Excel</span>
+          <span class="skill">Data Analysis</span>
+          <span class="skill">Marketing</span>
+          <span class="skill">Project Management</span>
+          <span class="skill">Entrepreneurship</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span>Portfolio</span>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-number">01</div>
+            <h3>AI Business Analysis</h3>
+            <p>Analyzed business data and used ChatGPT to support business analysis and decision-making.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">02</div>
+            <h3>Data Visualization</h3>
+            <p>Built an interactive dashboard with Tableau to communicate business data visually.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">03</div>
+            <h3>Web Development</h3>
+            <p>Created a responsive Bootstrap website using modern web design principles.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">04</div>
+            <h3>Process Improvement</h3>
+            <p>Redesigned a business workflow using AI-assisted methods to improve efficiency.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="resume-box">
+          <div>
+            <h2>Resume</h2>
+            <p>View my education, experience, and qualifications.</p>
+          </div>
+          <!-- Replace resume.pdf with your actual resume filename -->
+          <a class="button button-primary" href="resume.pdf" target="_blank">View Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span>Contact</span>
+          <h2>Let's connect</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <span>Email</span>
+            <a href="mailto:Sawyer.drew.smith@utah.edu">Sawyer.drew.smith@utah.edu</a>
+          </div>
+
+          <div class="contact-card">
+            <span>GitHub</span>
+            <a href="https://Sawyer-D-Smith.github.io" target="_blank">Sawyer-D-Smith.github.io</a>
+          </div>
+
+          <div class="contact-card">
+            <span>LinkedIn</span>
+            <a href="#" onclick="return false;">Add LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Sawyer Smith
+  </footer>
+
+</body>
+</html>
